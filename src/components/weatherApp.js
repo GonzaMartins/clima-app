@@ -1,5 +1,4 @@
-// import process from 'process'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import WeatherForm from "./weatherForm";
 import WeatherMainInfo from "./weatherMainInfo";
 import Error from "./error";
@@ -15,7 +14,7 @@ export default function WeatherApp() {
     document.title = `Clima | ${weather?.name ?? ""}`;
   }, [weather]);
 
-  const loadInfo = async (city = "Buenos Aires") => {
+  const loadInfo = useCallback(async (city = "Buenos Aires") => {
     try {
       const request = await fetch(`${process.env?.REACT_APP_URL}&q=${city}`);
       const json = await request.json();
@@ -24,11 +23,11 @@ export default function WeatherApp() {
         `${process.env?.REACT_APP_ICON}${json.weather[0].icon}.png`
       );
       setWeatherIcon(icon);
-      console.log(weatherIcon);
     } catch (error) {
       console.log(error);
     }
-  };
+  }, []);
+
   const handleChangeCity = (city) => {
     setWeather(null);
     loadInfo(city);
@@ -37,6 +36,7 @@ export default function WeatherApp() {
   useEffect(() => {
     loadInfo();
   }, [loadInfo]);
+
   return (
     <div className="divContainer">
       <div className="weatherContainer">
@@ -51,8 +51,7 @@ export default function WeatherApp() {
           <WeatherMainInfo weather={weather} icon={weatherIcon} />
         ) : (
           <div className="spinnerContainer">
-            {" "}
-            <Loading />{" "}
+            <Loading />
           </div>
         )}
       </div>
