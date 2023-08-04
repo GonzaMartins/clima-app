@@ -1,0 +1,156 @@
+.weatherContainer{
+    width: 55%;
+    margin:auto;
+    /* margin-top:70px; */
+    background-color: rgb(190, 205, 218);
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.divContainer{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+.formContainer {
+    margin: 10px 0;
+}
+
+.input{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 18px;
+    border: 1px rgb(34, 33, 33);
+    border-radius: 4px;
+}
+
+.city{
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.country{
+    font-size: 25px;
+}
+
+.containerInfo{
+    display: flex;
+    flex-direction: column;
+}
+
+.containerTitle{
+    text-align: center;
+}
+
+.containerTemp{
+    align-self: center;
+}
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+.temp{
+    font-size: 15px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.tempDescription{
+    font-size: 35px;
+}
+
+.spinnerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: #09f;
+  
+    animation: spin 1s ease infinite;
+  }
+  
+.divData{
+    display: flex;
+}
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .error {
+    
+  }
+
+.numeImg {
+    max-width: 15vh;
+}
+
+.divHeader{
+    display: flex;
+    justify-content: space-around;
+}
+
+.titulo {
+    font-size: 65px;
+    align-self: center;
+}
+
+.divIcon{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divMaxMin {
+    display: flex;
+}
+
+.tempMaxMin{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.divMapa{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+@media (max-width: 600px) {
+    .titulo {
+        font-size: 35px;
+    }
+    .numeImg{
+        max-width: 6vh;
+    }
+    .weatherContainer{
+        width: 80%;
+    }
+    .container{
+        flex-direction: column;
+    }
+    .divData{
+        justify-content: center;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .weatherContainer{
+        width: 80%;
+    }
+  }
