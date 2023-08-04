@@ -16,7 +16,7 @@ export default function WeatherApp (){
 
     useEffect(() => {
         loadInfo()
-    }, [])
+    }, [loadInfo])
 
     useEffect(() => {
         document.title = `Clima | ${weather?.name ?? ''} `
@@ -45,7 +45,7 @@ export default function WeatherApp (){
     <div className='weatherContainer'>
         <div className='divHeader'>
             <div className='titulo'>Climapp</div>
-            <img className='numeImg' src={nubes} />
+            <img className='numeImg' alt='nubes' src={nubes} />
         </div>
         <WeatherForm onChangeCity={handleChangeCity} />
         { weather && weather.cod === '404' ? <Error /> : weather ? <WeatherMainInfo weather={weather} icon={weatherIcon}/> : <div className='spinnerContainer'> <Loading /> </div> }
