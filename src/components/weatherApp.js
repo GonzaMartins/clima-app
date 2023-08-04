@@ -12,7 +12,7 @@ export default function WeatherApp() {
   const [weatherIcon, setWeatherIcon] = useState(null);
 
   useEffect(() => {
-    document.title = `Clima | ${weather?.name ?? ""} `;
+    document.title = `Clima | ${weather?.name ?? ""}`;
   }, [weather]);
 
   const loadInfo = async (city = "Buenos Aires") => {
