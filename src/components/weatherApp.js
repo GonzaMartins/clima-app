@@ -10,17 +10,20 @@ export default function WeatherApp() {
   const [weather, setWeather] = useState(null);
   const [weatherIcon, setWeatherIcon] = useState(null);
 
+  const apiBaseUrl = "https://api.openweathermap.org/data/2.5/weather?id=524901&appid=a30ed4d972778e8d26e26877580906d8&units=metric";
+  const iconsUrl = "https://openweathermap.org/img/wn/"
+
   useEffect(() => {
     document.title = `Clima | ${weather?.name ?? ""}`;
   }, [weather]);
 
   const loadInfo = useCallback(async (city = "Buenos Aires") => {
     try {
-      const request = await fetch(`${process.env?.REACT_APP_URL}&q=${city}`);
+      const request = await fetch(`${apiBaseUrl}&q=${city}`);
       const json = await request.json();
       setWeather(json);
       const icon = await fetch(
-        `${process.env?.REACT_APP_ICON}${json.weather[0].icon}.png`
+        `${iconsUrl}${json.weather[0].icon}.png`
       );
       setWeatherIcon(icon);
     } catch (error) {
